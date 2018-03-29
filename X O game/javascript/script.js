@@ -2,7 +2,9 @@ for (var i = 0; i <9; i++) {
     document.getElementById('game').innerHTML+='<div class="block"></div>';
 }
 var turn = 0;
-
+document.getElementById('reLoad').onclick = function() {
+    location.reload();
+}
 document.getElementById('game').onclick = function(event) {
     console.log(event);
     if (event.target.className == 'block') {
