@@ -1,12 +1,29 @@
-document.onmousemove = function() {
-	document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeEnd', '<img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/cat-48.png" id="cat">');
-	var cat = document.getElementById('cat');
-	document.onmousemove = function(event) {
-	cat.style.position = 'fixed';
-	cat.style.left = event.clientX + 20+'px'
-	cat.style.top = event.clientY + 20+'px'
+var number = Math.floor(10*Math.random())+ 1;
+console.log(number);
+var count = 3;
+
+document.getElementById('check').onclick = function() {
+    if (count>0) {
+        var userNum = document.getElementById('myNum').value;
+        userNum = parseInt(userNum);
+        var out = document.getElementById('out');
+
+    if (userNum == number) {
+        out.innerHTML = 'You guessed!';
+        alert('You won. This page will be reloaded')
+        location.reload();
+    }
+    else if(userNum > number) {
+        out.innerHTML = 'over than';
+    }
+    else {
+        out.innerHTML = 'less than';
+        }
+        count--;
+        document.getElementById('count').innerHTML = 'Attempts remaining: ' +count;
+    }
+    else {
+        alert('You lost. This page will be reloaded');
+        location.reload();
+    }
 }
-}
-
-
-
