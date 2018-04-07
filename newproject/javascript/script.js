@@ -1,23 +1,22 @@
-window.onload = function() {
+let btn_prev = document.querySelector('#gallery .buttons .prev');
+let btn_next = document.querySelector('#gallery .buttons .next');
 
-document.querySelector('#menu').onmouseover = showMenu;
-document.querySelector('#menu').onmouseout = hideMenu;
+let images = document.querySelectorAll('#gallery .photos img');
+let i = 0;
 
-document.onkeydown = function(event) {
-    console.log(event);
-    if(event.code == 'KeyM') {
-        showMenu();
+btn_prev.onclick = function() {
+    images[i].className = '';
+    i--;
+    if (i < 0){
+        i = images.length -1;
     }
-    if(event.code == 'Escape') {
-        hideMenu();
+    images[i].className = 'showed';
+}
+btn_next.onclick = function() {
+    images[i].className = '';
+    i++;
+    if (i >= images.length){
+        i = 0;
     }
-}
-
-function showMenu() {
-    document.querySelector('#menu').style.left = 0;
-}
-function hideMenu() {
-    document.querySelector('#menu').style.left = '-230px';
-}
-
+    images[i].className = 'showed';
 }
